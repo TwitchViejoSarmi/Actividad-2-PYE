@@ -9,7 +9,7 @@ Suponer que un **experimento aleatorio** consiste la **selección de un componen
 
 ### Probabilidad Teórica:
 
-Para el calculo de la probabilidad teótica nos informan que la probabilidad de que pasados 5 años, un componente falle es de 0.1 es decir $P(X = 1) = 0.1$ , y como nos dicen que el tiempo de vida de cada componente es independiente cada otro, podemos calcular $P(X = 3)$ de la siguiente manera:
+Para el calculo de la probabilidad teótica nos informan que la probabilidad de que pasados 5 años, un componente falle es de 0.1, es decir, $P(X = 1) = 0.1$ , y como nos dicen que el tiempo de vida de cada componente es independiente cada otro, podemos calcular $P(X = 3)$ de la siguiente manera:
 
 $P(X = 3)$ = $P(X = 1) \times P(X = 1) \times P(X = 1)$
 
