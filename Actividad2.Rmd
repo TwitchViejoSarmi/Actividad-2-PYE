@@ -5,11 +5,34 @@ output: html_document
 date: '2024-03-16'
 ---
 
-Suponer que un **experimento aleatorio** consiste la **selección de un componente electrónico al azar**. La **probabilidad** de que **un componente falle después de 5 años** es 0.1. Suponer que el tiempo de vida entre los componentes es **independiente** uno del otro. Si se **seleccionan al azar 3 componentes** electrónicos, el interés de este ejercicio es estimar la probabilidad de que los 3 componentes fallen después de 5 años. Utilizar el software R para simular la selección al azar de los componentes usando la función rbinom(n, size=3,prob=0.1). Emplear la siguiente notación: X=número de componentes que fallan después de 5 años, fn(X=3) es la frecuencia relativa de que 3 componentes fallen después de 5 años, P(X=3) la probabilidad de que 3 componentes fallen después de 5 años. El valor de n en este caso representa el número de veces que se repite el experimento aleatorio.
+Suponer que un **experimento aleatorio** consiste la **selección de un componente electrónico al azar**. La **probabilidad** de que **un componente falle después de 5 años** es 0.1. Suponer que el tiempo de vida entre los componentes es **independiente** uno del otro. Si se **seleccionan al azar 3 componentes** electrónicos, el interés de este ejercicio es estimar la probabilidad de que los 3 componentes fallen después de 5 años. Utilizar el software R para simular la selección al azar de los componentes usando la función rbinom(n, size=3,prob=0.1). Emplear la siguiente notación: X=número de componentes que fallan después de 5 años, $fn(X=3)$ es la frecuencia relativa de que 3 componentes fallen después de 5 años, $P(X=3)$ la probabilidad de que 3 componentes fallen después de 5 años. El valor de n en este caso representa el número de veces que se repite el experimento aleatorio.
 
 ### Probabilidad Teórica:
 
-(Aquí iría una explicación mela de la Probabilidad Teórica).
+Para el calculo de la probabilidad teórica definimos nuestra variable con la siguiente notación: Y = Numero de componetes que fallan y $P(Y = 3)$ = probabilidad de que un componente falle(Fallar) o no falle(No fallar), luego mostramos todos los posibles resultados para todos los eventos posibles en una tabla representado a Fallar como 1 y No fallar como 0 (Ver Tabla 1)
+
+| Componente 1 | Componente 2 | Componente 3 |
+|:------------:|:------------:|:------------:|
+|      0       |      0       |      0       |
+|      0       |      0       |      1       |
+|      0       |      1       |      1       |
+|      0       |      1       |      0       |
+|      1       |      0       |      0       |
+|      1       |      0       |      1       |
+|      1       |      1       |      0       |
+|      1       |      1       |      1       |
+
+: Tabla 1: Eventos de los componentes
+
+Como se puede apreciar en la tabla 1, el evento de que los 3 componentes fallen al mismo tiempo tiende a que suceda teóricamente 1 de 8 veces, es decir $P(Y = 3)$ = $\frac{1}{8}$. Luego nos informan que la probabilidad de que pasados 5 años, un componente falle es de 0.1, y como nos dicen que el tiempo de vida de cada componente es independiente cada otro, podemos calcular $P(X = 3)$ de la siguiente manera:
+
+$P(X = 3)$ = $P(Y = 3) \times (0.1)$
+
+$P(X = 3) = \frac{1}{8} \times (0.1)$
+
+$P(X = 3) = 0.0125$
+
+En conclusión la probabilidad teórica de que al seleccionar 3 componentes presenten fallas pasados 5 años es de 0.0125.
 
 ### Parámetros Iniciales:
 
@@ -30,7 +53,7 @@ print(f_n)
 ```
 
 1.  Construir un gráfico de dispersión donde en el eje Y ubiques los resultados de las frecuencias relativas y en el eje X los valores de 1 a 100.
-2.  Trazar una línea paralela al eje X que corte en el eje Y en el valor de la probabilidad P(X=3).
+2.  Trazar una línea paralela al eje X que corte en el eje Y en el valor de la probabilidad $P(X=3)$.
 
 **Solución para los puntos 1 y 2 apartes:**
 
@@ -46,11 +69,11 @@ lines(1:100,
       rep(0.001,100), col = "red")
 ```
 
-3.  Interpretar el gráfico de dispersión comparando los resultados experimentales fn(X=3) y el teórico P(X=3).
+3.  Interpretar el gráfico de dispersión comparando los resultados experimentales $fn(X=3)$ y el teórico P(X=3).
 
-**R/.** Como se puede apreciar, el gráfico muestra la aleatoriedad de las repuestas de cada uno de los casos tomados. No obstante, se puede evidenciar que gran parte de los resultados tienden a posicionarse justo en la línea resaltada (Ver Figura 1), lo que quiere decir que la muestra aleatoria, tiende a dar la probabilidad P(X=3) de manera acertada.
+**R/.** Como se puede apreciar, el gráfico muestra la aleatoriedad de las repuestas de cada uno de los casos tomados. No obstante, se puede evidenciar que gran parte de los resultados tienden a posicionarse justo en la línea resaltada (Ver Figura 1), lo que quiere decir que la muestra aleatoria, tiende a dar la probabilidad $P(X=3)$ de manera acertada.
 
-2.  Simular el experimento aleatorio n veces, donde n=20, 30, 40, 50, 100, 200, 300, 400, 1000, 20000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 200000, 500000, 1000000. Debes tener 20 valores de frecuencias relativas, uno por cada valor de n.  Construir un gráfico de dispersión donde en el eje Y ubiques los resultados de fn(X=3) y en el eje X los valores de n. Trazar una línea paralela al eje X que corte en el eje Y en el valor de la probabilidad P(X=3).  Interpretar los resultados que relacionan a fn(X=3) y P(X=3) conforme aumenta el valor de n. Interpretar usando la ley de los números grandes.
+2.  Simular el experimento aleatorio n veces, donde n=20, 30, 40, 50, 100, 200, 300, 400, 1000, 20000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 200000, 500000, 1000000. Debes tener 20 valores de frecuencias relativas, uno por cada valor de n.  Construir un gráfico de dispersión donde en el eje Y ubiques los resultados de $fn(X=3$) y en el eje X los valores de n. Trazar una línea paralela al eje X que corte en el eje Y en el valor de la probabilidad $P(X=3)$.  Interpretar los resultados que relacionan a $fn(X=3$) y $P(X=3)$ conforme aumenta el valor de n. Interpretar usando la ley de los números grandes.
 
 ```{r}
 # Punto 2.
@@ -72,4 +95,4 @@ lines(1:20,
       rep(0.001,20), col = "red")
 ```
 
-Este gráfico muestra que las frecuencias relativas tienden a posicionarse en la probalidad acertada P(X=3). Aunque, a diferencia del caso anterior (Ver Figura 1), se puede observar que a medida que amuentan el tamaño de casos evaluados, la frecuencia relativa tiende a estabilizarse en la propabilidad esperada P(X=3) (Ver Figura 2). En conclusión, a medida que aumentan el número de evaluaciones, la frecuencia tiende a dar la probabilidad correcta, lo que demuestra que la ley de los números grandes. Es decir, si se toma un número grande de componentes, el 0.2% de las veces que se tomen 3 componentes, los 3 se encontrarán averiados.
+Este gráfico muestra que las frecuencias relativas tienden a posicionarse en la probalidad acertada $P(X=3)$. Aunque, a diferencia del caso anterior (Ver Figura 1), se puede observar que a medida que amuentan el tamaño de casos evaluados, la frecuencia relativa tiende a estabilizarse en la propabilidad esperada $P(X=3)$ (Ver Figura 2). En conclusión, a medida que aumentan el número de evaluaciones, la frecuencia tiende a dar la probabilidad correcta, lo que demuestra que la ley de los números grandes. Es decir, si se toma un número grande de componentes, el 0.2% de las veces que se tomen 3 componentes, los 3 se encontrarán averiados después de 5 años.
