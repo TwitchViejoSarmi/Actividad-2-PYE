@@ -1,5 +1,5 @@
 ---
-title: 'Solución Actividad 2 Propabiliad y Estadística'
+title: 'Solución Actividad 2 Probabiliad y Estadística'
 author: 'Alejandro Sarmiento Rivera y Juan Esteban Becerra Gutiérrez'
 output: html_document
 date: '2024-03-16'
@@ -9,7 +9,7 @@ Suponer que un **experimento aleatorio** consiste la **selección de un componen
 
 ### Probabilidad Teórica:
 
-Para el calculo de la probabilidad teótica nos informan que la probabilidad de que pasados 5 años, un componente falle es de 0.1, es decir, $P(X = 1) = 0.1$ , y como nos dicen que el tiempo de vida de cada componente es independiente cada otro, podemos calcular $P(X = 3)$ de la siguiente manera:
+Para el calculo de la probabilidad teórica, nos informan que la probabilidad de que pasados 5 años, un componente falle es de 0.1, es decir, $P(X = 1) = 0.1$ , y como nos dicen que el tiempo de vida de cada componente es independiente cada otro, podemos calcular $P(X = 3)$ de la siguiente manera:
 
 $P(X = 3)$ = $P(X = 1) \times P(X = 1) \times P(X = 1)$
 
@@ -17,7 +17,7 @@ $P(X = 3) = (0.1) \times (0.1) \times (0.1)$
 
 $P(X = 3) = 0.001$
 
-En conclusión la probabilidad teórica de que al seleccionar 3 componentes presenten fallas pasados 5 años es de 0.001.
+En conclusión, la probabilidad teórica de que al seleccionar 3 componentes presenten fallas pasados 5 años es de 0.001.
 
 ### Parámetros Iniciales:
 
