@@ -1,0 +1,75 @@
+---
+title: 'Solución Actividad 2 Propabiliad y Estadística'
+author: 'Alejandro Sarmiento Rivera y Juan Esteban Becerra Gutiérrez'
+output: html_document
+date: '2024-03-16'
+---
+
+Suponer que un **experimento aleatorio** consiste la **selección de un componente electrónico al azar**. La **probabilidad** de que **un componente falle después de 5 años** es 0.1. Suponer que el tiempo de vida entre los componentes es **independiente** uno del otro. Si se **seleccionan al azar 3 componentes** electrónicos, el interés de este ejercicio es estimar la probabilidad de que los 3 componentes fallen después de 5 años. Utilizar el software R para simular la selección al azar de los componentes usando la función rbinom(n, size=3,prob=0.1). Emplear la siguiente notación: X=número de componentes que fallan después de 5 años, fn(X=3) es la frecuencia relativa de que 3 componentes fallen después de 5 años, P(X=3) la probabilidad de que 3 componentes fallen después de 5 años. El valor de n en este caso representa el número de veces que se repite el experimento aleatorio.
+
+### Probabilidad Teórica:
+
+(Aquí iría una explicación mela de la Probabilidad Teórica).
+
+### Parámetros Iniciales:
+
+```{r}
+set.seed(101) # Semilla de aleatoriedad.
+
+# Se asume que 3 indica que los 3 componentes fallaron.
+experimento <- rbinom(5, size = 3, prob = 0.1)
+print(experimento)
+```
+
+1.  Simular el experimento aleatorio n=10000 veces y calcular la frecuencia relativa de que X=3. Luego repetir lo anterior 100 veces. Debes tener 100 valores de frecuencias relativas.
+
+```{r}
+# Punto 1.
+f_n <- replicate(100, sum((rbinom(10000, size = 3, prob = 0.1) == 3)/ 10000))
+print(f_n)
+```
+
+1.  Construir un gráfico de dispersión donde en el eje Y ubiques los resultados de las frecuencias relativas y en el eje X los valores de 1 a 100.
+2.  Trazar una línea paralela al eje X que corte en el eje Y en el valor de la probabilidad P(X=3).
+
+**Solución para los puntos 1 y 2 apartes:**
+
+```{r}
+# a), b) y c).
+plot(1:100,
+     f_n,pch=19,
+     main = "Dispersión de fallo para 3 componentes",
+     ylab="fi",
+     xlab ="Simulación",
+     sub="Figura 1. Gráfico de dispersión del fallo de 3 componentes después de 5 años")
+lines(1:100,
+      rep(0.001,100), col = "red")
+```
+
+3.  Interpretar el gráfico de dispersión comparando los resultados experimentales fn(X=3) y el teórico P(X=3).
+
+**R/.** Como se puede apreciar, el gráfico muestra la aleatoriedad de las repuestas de cada uno de los casos tomados. No obstante, se puede evidenciar que gran parte de los resultados tienden a posicionarse justo en la línea resaltada (Ver Figura 1), lo que quiere decir que la muestra aleatoria, tiende a dar la probabilidad P(X=3) de manera acertada.
+
+2.  Simular el experimento aleatorio n veces, donde n=20, 30, 40, 50, 100, 200, 300, 400, 1000, 20000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 200000, 500000, 1000000. Debes tener 20 valores de frecuencias relativas, uno por cada valor de n.  Construir un gráfico de dispersión donde en el eje Y ubiques los resultados de fn(X=3) y en el eje X los valores de n. Trazar una línea paralela al eje X que corte en el eje Y en el valor de la probabilidad P(X=3).  Interpretar los resultados que relacionan a fn(X=3) y P(X=3) conforme aumenta el valor de n. Interpretar usando la ley de los números grandes.
+
+```{r}
+# Punto 2.
+n <- c(20, 30, 40, 50, 100, 200, 300, 400, 1000, 20000, 40000, 50000, 60000, 70000, 80000, 90000, 100000, 200000, 500000, 1000000)
+length(n)
+f_n <- c() # Frecuencia Relativa.
+for (i in n){
+  f_n <- c(f_n,round(sum(rbinom(i, size=3,prob=0.1) == 3)/i, 3))
+}
+print(f_n)
+plot(1:20,
+     f_n,
+     pch=19,
+     main = "Dispersión de fallo para 3 componentes",
+     ylab="fi",
+     xlab ="n",
+     sub="Figura 2. Diagrama de dispersión de las frecuencias relativas segun el crecimiento de n")
+lines(1:20,
+      rep(0.001,20), col = "red")
+```
+
+Este gráfico muestra que las frecuencias relativas tienden a posicionarse en la probalidad acertada P(X=3). Aunque, a diferencia del caso anterior (Ver Figura 1), se puede observar que a medida que amuentan el tamaño de casos evaluados, la frecuencia relativa tiende a estabilizarse en la propabilidad esperada P(X=3) (Ver Figura 2). En conclusión, a medida que aumentan el número de evaluaciones, la frecuencia tiende a dar la probabilidad correcta, lo que demuestra que la ley de los números grandes. Es decir, si se toma un número grande de componentes, el 0.2% de las veces que se tomen 3 componentes, los 3 se encontrarán averiados.
