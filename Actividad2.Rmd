@@ -9,30 +9,15 @@ Suponer que un **experimento aleatorio** consiste la **selección de un componen
 
 ### Probabilidad Teórica:
 
-Para el calculo de la probabilidad teórica definimos nuestra variable con la siguiente notación: Y = Numero de componetes que fallan y $P(Y = 3)$ = probabilidad de que un componente falle(Fallar) o no falle(No fallar), luego mostramos todos los posibles resultados para todos los eventos posibles en una tabla representado a Fallar como 1 y No fallar como 0 (Ver Tabla 1)
+Para el calculo de la probabilidad teótica nos informan que la probabilidad de que pasados 5 años, un componente falle es de 0.1 es decir $P(X = 1) = 0.1$ , y como nos dicen que el tiempo de vida de cada componente es independiente cada otro, podemos calcular $P(X = 3)$ de la siguiente manera:
 
-| Componente 1 | Componente 2 | Componente 3 |
-|:------------:|:------------:|:------------:|
-|      0       |      0       |      0       |
-|      0       |      0       |      1       |
-|      0       |      1       |      1       |
-|      0       |      1       |      0       |
-|      1       |      0       |      0       |
-|      1       |      0       |      1       |
-|      1       |      1       |      0       |
-|      1       |      1       |      1       |
+$P(X = 3)$ = $P(X = 1) \times P(X = 1) \times P(X = 1)$
 
-: Tabla 1: Eventos de los componentes
+$P(X = 3) = (0.1) \times (0.1) \times (0.1)$
 
-Como se puede apreciar en la tabla 1, el evento de que los 3 componentes fallen al mismo tiempo tiende a que suceda teóricamente 1 de 8 veces, es decir $P(Y = 3)$ = $\frac{1}{8}$. Luego nos informan que la probabilidad de que pasados 5 años, un componente falle es de 0.1, y como nos dicen que el tiempo de vida de cada componente es independiente cada otro, podemos calcular $P(X = 3)$ de la siguiente manera:
+$P(X = 3) = 0.001$
 
-$P(X = 3)$ = $P(Y = 3) \times (0.1)$
-
-$P(X = 3) = \frac{1}{8} \times (0.1)$
-
-$P(X = 3) = 0.0125$
-
-En conclusión la probabilidad teórica de que al seleccionar 3 componentes presenten fallas pasados 5 años es de 0.0125.
+En conclusión la probabilidad teórica de que al seleccionar 3 componentes presenten fallas pasados 5 años es de 0.001.
 
 ### Parámetros Iniciales:
 
@@ -95,4 +80,4 @@ lines(1:20,
       rep(0.001,20), col = "red")
 ```
 
-Este gráfico muestra que las frecuencias relativas tienden a posicionarse en la probalidad acertada $P(X=3)$. Aunque, a diferencia del caso anterior (Ver Figura 1), se puede observar que a medida que amuentan el tamaño de casos evaluados, la frecuencia relativa tiende a estabilizarse en la propabilidad esperada $P(X=3)$ (Ver Figura 2). En conclusión, a medida que aumentan el número de evaluaciones, la frecuencia tiende a dar la probabilidad correcta, lo que demuestra que la ley de los números grandes. Es decir, si se toma un número grande de componentes, el 0.2% de las veces que se tomen 3 componentes, los 3 se encontrarán averiados después de 5 años.
+Este gráfico muestra que las frecuencias relativas tienden a posicionarse en la probalidad acertada $P(X=3)$. Aunque, a diferencia del caso anterior (Ver Figura 1), se puede observar que a medida que amuentan el tamaño de casos evaluados, la frecuencia relativa tiende a estabilizarse en la propabilidad esperada $P(X=3)$ (Ver Figura 2). En conclusión, a medida que aumentan el número de evaluaciones, la frecuencia tiende a dar la probabilidad correcta, lo que demuestra que la ley de los números grandes. Es decir, si se toma un número grande de componentes, el 0.1% de las veces que se tomen 3 componentes, los 3 se encontrarán averiados después de 5 años.

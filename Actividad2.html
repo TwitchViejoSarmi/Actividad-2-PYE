@@ -376,76 +376,19 @@ representa el número de veces que se repite el experimento
 aleatorio.</p>
 <div id="probabilidad-teórica" class="section level3">
 <h3>Probabilidad Teórica:</h3>
-<p>Para el calculo de la probabilidad teórica definimos nuestra variable
-con la siguiente notación: Y = Numero de componetes que fallan y <span class="math inline">\(P(Y = 3)\)</span> = probabilidad de que un
-componente falle(Fallar) o no falle(No fallar), luego mostramos todos
-los posibles resultados para todos los eventos posibles en una tabla
-representado a Fallar como 1 y No fallar como 0 (Ver Tabla 1)</p>
-<table>
-<caption>Tabla 1: Eventos de los componentes</caption>
-<thead>
-<tr class="header">
-<th align="center">Componente 1</th>
-<th align="center">Componente 2</th>
-<th align="center">Componente 3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td align="center">0</td>
-<td align="center">0</td>
-<td align="center">1</td>
-</tr>
-<tr class="odd">
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">1</td>
-</tr>
-<tr class="even">
-<td align="center">0</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-<tr class="odd">
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td align="center">1</td>
-<td align="center">0</td>
-<td align="center">1</td>
-</tr>
-<tr class="odd">
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">0</td>
-</tr>
-<tr class="even">
-<td align="center">1</td>
-<td align="center">1</td>
-<td align="center">1</td>
-</tr>
-</tbody>
-</table>
-<p>Como se puede apreciar en la tabla 1, el evento de que los 3
-componentes fallen al mismo tiempo tiende a que suceda teóricamente 1 de
-8 veces, es decir <span class="math inline">\(P(Y = 3)\)</span> = <span class="math inline">\(\frac{1}{8}\)</span>. Luego nos informan que la
-probabilidad de que pasados 5 años, un componente falle es de 0.1, y
-como nos dicen que el tiempo de vida de cada componente es independiente
-cada otro, podemos calcular <span class="math inline">\(P(X =
-3)\)</span> de la siguiente manera:</p>
-<p><span class="math inline">\(P(X = 3)\)</span> = <span class="math inline">\(P(Y = 3) \times (0.1)\)</span></p>
-<p><span class="math inline">\(P(X = 3) = \frac{1}{8} \times
+<p>Para el calculo de la probabilidad teótica nos informan que la
+probabilidad de que pasados 5 años, un componente falle es de 0.1 es
+decir <span class="math inline">\(P(X = 1) = 0.1\)</span> , y como nos
+dicen que el tiempo de vida de cada componente es independiente cada
+otro, podemos calcular <span class="math inline">\(P(X = 3)\)</span> de
+la siguiente manera:</p>
+<p><span class="math inline">\(P(X = 3)\)</span> = <span class="math inline">\(P(X = 1) \times P(X = 1) \times P(X =
+1)\)</span></p>
+<p><span class="math inline">\(P(X = 3) = (0.1) \times (0.1) \times
 (0.1)\)</span></p>
-<p><span class="math inline">\(P(X = 3) = 0.0125\)</span></p>
+<p><span class="math inline">\(P(X = 3) = 0.001\)</span></p>
 <p>En conclusión la probabilidad teórica de que al seleccionar 3
-componentes presenten fallas pasados 5 años es de 0.0125.</p>
+componentes presenten fallas pasados 5 años es de 0.001.</p>
 </div>
 <div id="parámetros-iniciales" class="section level3">
 <h3>Parámetros Iniciales:</h3>
@@ -541,7 +484,7 @@ en la propabilidad esperada <span class="math inline">\(P(X=3)\)</span>
 (Ver Figura 2). En conclusión, a medida que aumentan el número de
 evaluaciones, la frecuencia tiende a dar la probabilidad correcta, lo
 que demuestra que la ley de los números grandes. Es decir, si se toma un
-número grande de componentes, el 0.2% de las veces que se tomen 3
+número grande de componentes, el 0.1% de las veces que se tomen 3
 componentes, los 3 se encontrarán averiados después de 5 años.</p>
 </div>
 
